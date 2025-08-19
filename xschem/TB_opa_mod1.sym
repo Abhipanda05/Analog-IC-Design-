@@ -1,0 +1,96 @@
+v {xschem version=3.4.8RC file_version=1.2}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+V {}
+S {}
+E {}
+L 4 -100 -250 70 -170 {}
+L 4 -100 -120 70 -170 {}
+L 4 -100 -250 -100 -120 {}
+L 7 60 -170 80 -170 {}
+L 7 -120 -230 -100 -230 {}
+L 7 -120 -140 -100 -140 {}
+L 7 -20 -140 -20 -120 {}
+L 7 -70 -260 -70 -240 {}
+L 7 -60 -250 -60 -230 {}
+B 5 77.5 -172.5 82.5 -167.5 {name=vop dir=inout}
+B 5 -122.5 -232.5 -117.5 -227.5 {name=vip dir=inout}
+B 5 -122.5 -142.5 -117.5 -137.5 {name=vim dir=inout}
+B 5 -22.5 -122.5 -17.5 -117.5 {name=vom dir=inout}
+B 5 -72.5 -262.5 -67.5 -257.5 {name=vip dir=inout}
+B 5 -62.5 -252.5 -57.5 -247.5 {name=vip dir=inout}
+T {@symname} -84 -186 0 0 0.3 0.3 {}
+T {@name} -55 -242 0 0 0.2 0.2 {}
+T {vop} 55 -174 0 1 0.2 0.2 {}
+T {vip} -95 -226 2 1 0.2 0.2 {}
+T {vim} -95 -136 2 1 0.2 0.2 {}
+T {vom} -16 -145 1 1 0.2 0.2 {}
+N -190 -140 -120 -140 {lab=#net1}
+N -190 -140 -190 -100 {lab=#net1}
+N -190 -40 -190 10 {lab=#net2}
+N -400 10 -190 10 {lab=#net2}
+N -400 -40 -400 10 {lab=#net2}
+N -480 -50 -440 -50 {lab=GND}
+N -480 -50 -480 -20 {lab=GND}
+N -230 -50 -230 -20 {lab=GND}
+N -480 -20 -230 -20 {lab=GND}
+N -480 -20 -480 -10 {lab=GND}
+N -230 -130 -230 -90 {lab=#net3}
+N -580 -130 -230 -130 {lab=#net3}
+N -580 -130 -580 -60 {lab=#net3}
+N -460 -90 -440 -90 {lab=#net3}
+N -460 -130 -460 -90 {lab=#net3}
+N -390 -230 -120 -230 {lab=#net4}
+N -400 -230 -400 -100 {lab=#net4}
+N -400 -230 -390 -230 {lab=#net4}
+N 80 -170 150 -170 {lab=#net5}
+N 150 -170 150 -130 {lab=#net5}
+N -580 0 -580 20 {lab=GND}
+N -300 10 -300 30 {lab=#net2}
+N -300 90 -300 110 {lab=GND}
+N -20 -120 -20 -100 {lab=GND}
+N 150 -70 150 -50 {lab=GND}
+N -180 -300 -180 -290 {lab=GND}
+N -180 -400 -180 -360 {lab=#net6}
+N -180 -400 -50 -400 {lab=#net6}
+N -60 -250 -40 -250 {lab=vib5u}
+N -40 -280 -40 -250 {lab=vib5u}
+N -70 -400 -70 -260 {lab=#net6}
+N -40 -400 -40 -340 {lab=#net6}
+N -50 -400 -40 -400 {lab=#net6}
+C {vcvs.sym} -400 -70 0 0 {name=E1 value=-0.5}
+C {vcvs.sym} -190 -70 0 0 {name=E2 value=0.5}
+C {gnd.sym} -480 -10 0 0 {name=l1 lab=GND}
+C {vsource.sym} -580 -30 0 0 {name=V2 value=0 savecurrent=false}
+C {gnd.sym} -580 20 0 0 {name=l2 lab=GND}
+C {vsource.sym} -300 60 0 0 {name=Vcm value=0.9 savecurrent=false}
+C {gnd.sym} -300 110 0 0 {name=l3 lab=GND}
+C {gnd.sym} -20 -100 0 0 {name=l4 lab=GND}
+C {capa.sym} 150 -100 0 0 {name=C1
+m=1
+value=1p
+footprint=1206
+device="ceramic capacitor"}
+C {gnd.sym} 150 -50 0 0 {name=l5 lab=GND}
+C {vsource.sym} -180 -330 0 0 {name=Vdd value=1.8 savecurrent=false}
+C {gnd.sym} -180 -290 0 0 {name=l6 lab=GND}
+C {isource.sym} -40 -310 0 0 {name=I0 value=5u}
+C {devices/code.sym} -800 -100 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+"
+spice_ignore=false}
+C {simulator_commands_shown.sym} -750 -370 0 0 {name=COMMANDS
+simulator=ngspice
+only_toplevel=false 
+value="
+* ngspice commands
+"}
+C {lab_wire.sym} -70 -270 0 0 {name=p1 sig_type=std_logic lab=AVDD}
+C {lab_wire.sym} -40 -250 0 0 {name=p2 sig_type=std_logic lab=vib5u}
