@@ -1,7 +1,7 @@
 # Analog-IC-Design
 Analog IC Design Internship Report  Name:Abhisekh Panda  SIC:21BECC24 Branch: Electronics and Communication Engineering  Duration: June 2nd, 2025 – June 20th, 2025 Mentor: Dr. Saroj Rout
 
-🛠️ Software Used Xschem Ngspice Siliwiz Git & GitHub
+🛠 Software Used Xschem Ngspice Siliwiz Git & GitHub
 
 📑 Table of Contents USB Microphone System Analysis High-Pass Filter Circuit Siliwiz Simulation Current Mirror FET Characterization NFET Characterization
 
@@ -10,7 +10,7 @@ Analog IC Design Internship Report  Name:Abhisekh Panda  SIC:21BECC24 Branch: El
 
 🔧 System Overview MEMS Microphone (SPH8878LR5H-1): Captures sound and outputs an analog voltage signal Op-Amp (OPA344): Amplifies & filters ADC + USB Output: Digitizes and sends to PC 🎧 This design enables real-time USB-MIDI output via analog signal conditioning.
 
-🎛️ Thevenin Equivalent Model of the Microphone To understand the microphone as a signal source, it can be modeled with its Thevenin equivalent:
+🎛 Thevenin Equivalent Model of the Microphone To understand the microphone as a signal source, it can be modeled with its Thevenin equivalent:
 
 This model helps in:
 
@@ -48,7 +48,7 @@ High-Pass Filter Circuit 🧰 Circuit Overview Input Capacitor C_i = 4.7μF: Blo
 
 At low frequencies → H(s) → 0 (attenuates low freq) At high frequencies → H(s) → 1 (passes high freq) 🔻 Cutoff Frequency (fc) fc = 1 / (2πRiCi) ≈ 6.77 Hz For Ri = 5kΩ, Ci = 4.7μF
 
-🖼️ Op-Amp Schematic Diagram Detailed internal schematic of the operational amplifier:
+🖼 Op-Amp Schematic Diagram Detailed internal schematic of the operational amplifier:
 <img width="941" height="451" alt="17541342537727379113535766509858" src="https://github.com/user-attachments/assets/0e3621b4-7454-49d8-ac7a-330c1a0153fe" />
 Op-Amp Symbolic Diagram Standard symbolic representation of an operational amplifier:
 <img width="1015" height="667" alt="17541342945323191885007027604472" src="https://github.com/user-attachments/assets/d7138a84-fdae-4479-a000-e4738809d2a3" />
